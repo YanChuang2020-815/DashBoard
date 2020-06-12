@@ -5,6 +5,11 @@
 yarn install
 ```
 
+## Install video-js
+```
+yarn install
+```
+
 ### Compiles and hot-reloads for development
 ```
 yarn run dev
