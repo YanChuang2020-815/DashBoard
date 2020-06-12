@@ -7,7 +7,7 @@ yarn install
 
 ## Install video-js
 ```
-yarn install
+npm install video-js
 ```
 
 ### Compiles and hot-reloads for development
