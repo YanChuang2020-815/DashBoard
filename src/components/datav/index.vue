@@ -2,7 +2,7 @@
   <div id="data-view">
     <dv-full-screen-container>
       <div class="main-header">
-        <div class="mh-left">技术支持:<a href="https://github.com/jiaming743/DataV">https://github.com/jiaming743/DataV</a></div>
+        <div class="mh-left"></div>
         <div class="mh-middle">火眼金睛---智慧消防</div>
         <div class="mh-right">
           <dv-border-box-2
