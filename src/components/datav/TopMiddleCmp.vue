@@ -9,6 +9,7 @@
         ref="videoPlayer"
         :playsinline="true"
         :options="playerOptions"
+        @timeupdate="onPlayerTimeupdate($event)"
         @play="onPlayerPlay($event)"
         @pause="onPlayerPause($event)"
         @ended="onPlayerEnded($event)"
@@ -55,6 +56,37 @@ export default {
       player.requestFullscreen() // 调用全屏api方法
       player.isFullscreen(true)
       player.play()
+    },
+    onPlayerTimeupdate (player) {
+      // console.log('当前视频秒数', player.currentTime())
+    },
+    // 时间格式 2019-04-02
+    formatDate () {
+      var date = new Date()
+      const year = date.getFullYear()
+      const month = this.timeFormat(date.getMonth() + 1)
+      const day = this.timeFormat(date.getDate())
+      const hour = this.timeFormat(date.getHours())
+      const minute = this.timeFormat(date.getMinutes())
+      const second = this.timeFormat(date.getSeconds())
+      const allDate =
+        year +
+        '-' +
+        month +
+        '-' +
+        day +
+        ' ' +
+        hour +
+        ':' +
+        minute +
+        ':' +
+        second
+      return allDate
+    },
+    // 倒计时小于10
+    timeFormat (param) {
+      // 小于10的格式化函数
+      return param < 10 ? '0' + param : param
     }
   }
 }
