@@ -5,89 +5,35 @@
       <dv-decoration-3 style="width:200px;height:20px;" />
     </div>
     <div class="filmvideo" style="margin: 20 auto;width: 600px;height: 300px;">
-      <video-player  class="video-player vjs-custom-skin"
-        ref="videoPlayer"
-        :playsinline="true"
-        :options="playerOptions"
-        @timeupdate="onPlayerTimeupdate($event)"
-        @play="onPlayerPlay($event)"
-        @pause="onPlayerPause($event)"
-        @ended="onPlayerEnded($event)"
-      ></video-player>
+      <video
+          id="my-video"
+          class="video-js vjs-default-skin box"
+          controls
+          preload="auto"
+      >
+          <source
+            src="http://192.168.1.4:8080/live/stream.m3u8"
+            type="application/x-mpegURL"
+          />
+      </video>
     </div>
   </div>
 </template>
 
 <script>
+import videojs from 'video.js'
+import 'videojs-contrib-hls'
 export default {
   name: 'TopMiddleCmp',
   data () {
     return {
-      playerOptions: {
-        playbackRates: [0.7, 1.0, 1.5, 2.0], // 播放速度
-        autoplay: false, // 如果true,浏览器准备好时开始回放。
-        muted: false, // 默认情况下将会消除任何音频。
-        loop: false, // 导致视频一结束就重新开始。
-        preload: 'auto', // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
-        language: 'zh-CN',
-        aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
-        // fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
-        sources: [{
-          type: 'application/x-mpegURL', // 这里的种类支持很多种：基本视频格式、直播、流媒体等，具体可以参看git网址项目
-          src: 'rtmp://58.200.131.2:1935/livetv/hunantv' // url地址rtmp://58.200.131.2:1935/livetv/hunantv
-        }],
-        // hls:true, // 如果是播放m3u8必须加（需注释掉techOrder,不然会有报错）
-        techOrder: ['flash', 'html5'], // 播放rtmp必须加
-        poster: '', // 你的封面地址
-        notSupportedMessage: '此视频暂无法播放，请稍后再试', // 允许覆盖Video.js无法播放媒体源时显示的默认信息。
-        controlBar: {
-          timeDivider: true,
-          durationDisplay: true,
-          remainingTimeDisplay: false,
-          fullscreenToggle: true // 全屏按钮
-        }
-      }
     }
   },
-  methods: {
-    // 点击全屏播放
-    handleFullScreen (index) {
-      const player = this.$refs.videoPlayer.player
-      player.requestFullscreen() // 调用全屏api方法
-      player.isFullscreen(true)
-      player.play()
-    },
-    onPlayerTimeupdate (player) {
-      // console.log('当前视频秒数', player.currentTime())
-    },
-    // 时间格式 2019-04-02
-    formatDate () {
-      var date = new Date()
-      const year = date.getFullYear()
-      const month = this.timeFormat(date.getMonth() + 1)
-      const day = this.timeFormat(date.getDate())
-      const hour = this.timeFormat(date.getHours())
-      const minute = this.timeFormat(date.getMinutes())
-      const second = this.timeFormat(date.getSeconds())
-      const allDate =
-        year +
-        '-' +
-        month +
-        '-' +
-        day +
-        ' ' +
-        hour +
-        ':' +
-        minute +
-        ':' +
-        second
-      return allDate
-    },
-    // 倒计时小于10
-    timeFormat (param) {
-      // 小于10的格式化函数
-      return param < 10 ? '0' + param : param
-    }
+  mounted () {
+    videojs('my-video',
+      function () {
+        this.play()
+      })
   }
 }
 </script>
@@ -97,5 +43,11 @@ export default {
   position: relative;
   padding: 0 50px;
   box-sizing: border-box;
+}
+</style>
+<style scoped>
+.box {
+    width: 580px;
+    height: 320px;
 }
 </style>

@@ -7,8 +7,8 @@ yarn install
 
 ### Compiles and hot-reloads for development
 ```
-npm install vue-video-player --save
-npm install videojs-flash --save
+npm install --save video.js
+npm install --save videojs-contrib-hls
 yarn run dev
 ```
 
