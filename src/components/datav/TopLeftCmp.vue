@@ -18,8 +18,8 @@
       </div>
       <dv-border-box-5 :reverse="true">
         <div class="main-value"><span>100</span>%</div>
-        <div class="compare-value"><span>监测火灾</span>66起</div>
-        <div class="compare-value"><span>实际火灾</span>9起</div>
+        <div class="compare-value"><span>监测火灾</span>14起</div>
+        <div class="compare-value"><span>实际火灾</span>14起</div>
       </dv-border-box-5>
     </div>
     <div>
@@ -47,7 +47,7 @@ export default {
   },
   data () {
     return {
-      totalPerMonth: 0
+      totalPerMonth: 14
     }
   },
   methods: {

@@ -3,7 +3,7 @@
     <div class="header-name">当前烟感状态</div>
     <div class="details-value"><span>无烟</span></div>
     <div class="header-name">当前湿度</div>
-    <dv-decoration-9 class="showValue" style="width:150px;height:150px;">66%</dv-decoration-9>
+    <dv-decoration-9 class="showValue" style="width:150px;height:150px;">30%</dv-decoration-9>
   </div>
 </template>
 

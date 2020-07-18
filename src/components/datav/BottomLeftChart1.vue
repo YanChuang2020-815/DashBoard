@@ -1,9 +1,9 @@
 <template>
   <div class="bottom-left-chart-1">
     <div class="header-name">当前系统状态</div>
-    <div class="details-value"><span>正常</span></div>
+    <div class="details-value"><span>异常</span></div>
     <div class="header-name">当前温度</div>
-    <dv-decoration-9 class="showValue" style="width:150px;height:150px;">36℃</dv-decoration-9>
+    <dv-decoration-9 class="showValue" style="width:150px;height:150px;">45℃</dv-decoration-9>
   </div>
 </template>
 

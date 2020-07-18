@@ -3,7 +3,7 @@
     <dv-full-screen-container>
       <div class="main-header">
         <div class="mh-left"></div>
-        <div class="mh-middle">火眼金睛---智慧消防</div>
+        <div class="mh-middle">火眼金睛---智慧安防系统</div>
         <div class="mh-right">
           <dv-border-box-2
             style="width: 120px; height: 50px; line-height: 50px; text-align:center;margin-left:200px;"
